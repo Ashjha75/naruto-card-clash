@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="" />
+    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,10 +38,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -78,18 +82,23 @@
   "keyToString": {
     "Docker.naruto-card-clash-server/compose.yaml: Compose Deployment.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "Spring Boot.NarutoCardClashServerApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev__v1",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Ashish jha/Desktop/PERSONAL/Project-naruto-card-clash",
     "settings.editor.selected.configurable": "application.passwordSafe"
   }
 }]]></component>
-  <component name="RunManager" selected="Docker.naruto-card-clash-server/compose.yaml: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.NarutoCardClashServerApplication">
     <configuration name="NarutoCardClashServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="naruto-card-clash" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ashish.narutocardclash.NarutoCardClashServerApplication" />
@@ -98,7 +107,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="naruto-card-clash-server/compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">

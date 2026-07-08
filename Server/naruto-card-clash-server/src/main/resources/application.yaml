@@ -1,3 +1,6 @@
 spring:
-  application:
-    name: naruto-card-clash-server
+    application:
+        name: naruto-card-clash-server
+    docker:
+        compose:
+            file: compose.yaml
