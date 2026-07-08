@@ -1,6 +1,43 @@
 spring:
     application:
         name: naruto-card-clash-server
+
     docker:
         compose:
-            file: compose.yaml
+            file: Server/naruto-card-clash-server/compose.yaml
+
+
+        jpa:
+            open-in-view: false
+            hibernate:
+                ddl-auto: validate
+            properties:
+                hibernate:
+                    format_sql: true
+
+        flyway:
+            enabled: true
+            locations: classpath:db/migration
+
+        cache:
+            type: redis
+            redis:
+                time-to-live: 30m
+                cache-null-values: false
+
+    server:
+        port: 8080
+
+    logging:
+        level:
+            org.springframework.security: INFO
+            org.hibernate.SQL: INFO
+
+    management:
+        endpoints:
+            web:
+                exposure:
+                    include: health,info
+        endpoint:
+            health:
+                show-details: when-authorized

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="">
+    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="Update application configuration and Docker setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/java/com/ashish/narutocardclash/NarutoCardClashServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/java/com/ashish/narutocardclash/NarutoCardClashServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +53,65 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="8.268997191040304E-4" />
+      <entry key="MS500" value="0.24181908240348302" />
+      <entry key="S2" value="0.7012496253212005" />
+      <entry key="S5" value="0.86765896188769" />
+      <entry key="S10" value="0.9314821318134288" />
+      <entry key="S30" value="0.9766182660982444" />
+      <entry key="S60" value="0.9882399840616874" />
+      <entry key="M2" value="0.9941026023815084" />
+      <entry key="M5" value="0.9976368542593583" />
+      <entry key="M10" value="0.9988177282464294" />
+      <entry key="M15" value="0.999211663441901" />
+      <entry key="M30" value="0.9996057540059987" />
+      <entry key="H1" value="0.9998028575704306" />
+      <entry key="H2" value="0.9999014239265942" />
+      <entry key="H4" value="0.999950710748582" />
+      <entry key="D1" value="0.999991784956048" />
+      <entry key="W1" value="0.9999988264181607" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.0" />
+      <entry key="H1" value="1.0" />
+      <entry key="H2" value="1.0" />
+      <entry key="H4" value="1.0" />
+      <entry key="D1" value="1.0" />
+      <entry key="W1" value="1.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.0013157075650266944" />
+      <entry key="MS500" value="0.2999818131082276" />
+      <entry key="S2" value="1.1490941404748116" />
+      <entry key="S5" value="1.590153496839166" />
+      <entry key="S10" value="1.781038772363822" />
+      <entry key="S30" value="1.9236207644874843" />
+      <entry key="S60" value="1.961368033063646" />
+      <entry key="M2" value="1.980572003001536" />
+      <entry key="M5" value="1.992201733166332" />
+      <entry key="M10" value="1.9960963397513525" />
+      <entry key="M15" value="1.997396552720633" />
+      <entry key="M30" value="1.9986977725154473" />
+      <entry key="H1" value="1.999348760242463" />
+      <entry key="H2" value="1.9996743486106583" />
+      <entry key="H4" value="1.9998371664268408" />
+      <entry key="D1" value="1.9999728599768338" />
+      <entry key="W1" value="1.999996122827033" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
@@ -112,19 +171,19 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="naruto-card-clash-server/compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="naruto-card-clash-server/compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="removeOrphansOnComposeDown" value="false" />
           <option name="sourceFilePath" value="Server/naruto-card-clash-server/compose.yaml" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.naruto-card-clash-server/compose.yaml: Compose Deployment" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Docker.naruto-card-clash-server/compose.yaml: Compose Deployment" />
+      <item itemvalue="Spring Boot.NarutoCardClashServerApplication" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -143,6 +202,15 @@
       <workItem from="1783503783266" duration="604000" />
       <workItem from="1783504447432" duration="1026000" />
     </task>
+    <task id="LOCAL-00001" summary="Update application configuration and Docker setup">
+      <option name="closed" value="true" />
+      <created>1783507178819</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783507178820</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -158,5 +226,9 @@
     <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
     <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
     <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update application configuration and Docker setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update application configuration and Docker setup" />
   </component>
 </project>
