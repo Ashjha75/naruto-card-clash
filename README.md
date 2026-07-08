@@ -60,4 +60,4 @@ docker-compose up
 - [Architecture Decisions](./docs/ADR.md) — Why we chose each pattern
 - [Concurrency Proofs](./docs/CONCURRENCY.md) — Tests that prove the fixes work
 
-## Project Structure
+
