@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="Update application configuration and Docker setup">
+      <change afterPath="$PROJECT_DIR$/Docs/main-reference-backend.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/java/com/ashish/narutocardclash/NarutoCardClashServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/java/com/ashish/narutocardclash/NarutoCardClashServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +17,7 @@
   <component name="CopilotPersistence">
     <persistenceIdMap>
       <entry key="_C:/Users/Ashish jha/Desktop/PERSONAL/Project-naruto-card-clash" value="3GDQhsxQ0Gxx2QEy6OmT70IqtL6" />
+      <entry key="_C:/Users/Ashish jha/Desktop/PERSONAL/Project-naruto-card-clash/Server/naruto-card-clash-server" value="3GFpUjAzHFwCfDtLqDjbaFvZFGW" />
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
@@ -38,6 +39,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Ashjha75"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ashjha75/naruto-card-clash",
+    "accountId": "8ea154bb-c5e2-4877-88b4-c363d4c3f2fa"
+  }
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -118,6 +131,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3GDQhsxQ0Gxx2QEy6OmT70IqtL6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
       <template>
@@ -148,6 +164,7 @@
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.NarutoCardClashServerApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
@@ -155,6 +172,11 @@
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Ashish jha/Desktop/PERSONAL/Project-naruto-card-clash",
     "settings.editor.selected.configurable": "application.passwordSafe"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Spring Boot.NarutoCardClashServerApplication">
@@ -201,6 +223,7 @@
       <updated>1783503782015</updated>
       <workItem from="1783503783266" duration="604000" />
       <workItem from="1783504447432" duration="1026000" />
+      <workItem from="1783577191965" duration="1444000" />
     </task>
     <task id="LOCAL-00001" summary="Update application configuration and Docker setup">
       <option name="closed" value="true" />
@@ -210,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783507178820</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update application configuration and Docker setup">
+      <option name="closed" value="true" />
+      <created>1783509026852</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783509026852</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
