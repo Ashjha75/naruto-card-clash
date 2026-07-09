@@ -6,38 +6,41 @@ spring:
     compose:
       file: Server/naruto-card-clash-server/compose.yaml
 
-
-    jpa:
-      open-in-view: false
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
       hibernate:
-        ddl-auto: validate
-      properties:
-        hibernate:
-          format_sql: true
+        format_sql: true
 
-    flyway:
-      enabled: true
-      locations: classpath:db/migration
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
-    cache:
-      type: redis
-      redis:
-        time-to-live: 30m
-        cache-null-values: false
+  cache:
+    type: redis
+    redis:
+      time-to-live: 30m
+      cache-null-values: false
 
-  server:
-    port: 8080
+jwt:
+  secret: "my-super-secret-and-very-long-key-spec-here-32-bytes-min"
+  expiration: 86400000 # 24 hours in milliseconds
 
-  logging:
-    level:
-      org.springframework.security: INFO
-      org.hibernate.SQL: INFO
+server:
+  port: 8080
 
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: health,info
-    endpoint:
-      health:
-        show-details: when-authorized
+logging:
+  level:
+    org.springframework.security: INFO
+    org.hibernate.SQL: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
