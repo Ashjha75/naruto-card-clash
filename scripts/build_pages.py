@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import html
-import re
 import shutil
 from pathlib import Path
 
@@ -9,6 +8,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = REPO_ROOT / "Docs"
 SITE_DIR = REPO_ROOT / "_site"
 APP_DIST_DIR = REPO_ROOT / "UI" / "dist"
+SITE_BASE_URL = "https://ashjha75.github.io/naruto-card-clash"
+DOCS_BASE_URL = f"{SITE_BASE_URL}/docs"
 
 
 def clean_site_dir() -> None:
@@ -34,12 +35,13 @@ def extract_title(markdown_text: str, fallback: str) -> str:
     return fallback
 
 
-HTML_TEMPLATE = """<!doctype html>
+def html_page(title: str, content: str) -> str:
+    return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}</title>
+  <title>{html.escape(title)}</title>
   <style>
     :root {{ color-scheme: light dark; }}
     body {{
@@ -53,16 +55,16 @@ HTML_TEMPLATE = """<!doctype html>
     header {{ border-bottom: 1px solid rgba(148, 163, 184, 0.25); }}
     a {{ color: #7dd3fc; }}
     .muted {{ color: #94a3b8; }}
-    .card-grid {{ display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }}
-    .card {{ padding: 16px; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 12px; background: rgba(15, 23, 42, 0.55); }}
     code {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-    pre {{ overflow: auto; padding: 16px; background: rgba(15, 23, 42, 0.8); border-radius: 12px; }}
+    ul {{ padding-left: 1.25rem; }}
+    li {{ margin: 0.35rem 0; }}
+    .small {{ font-size: 0.95rem; }}
   </style>
 </head>
 <body>
   <header>
     <div class="muted">Naruto Card Clash Docs</div>
-    <h1>{title}</h1>
+    <h1>{html.escape(title)}</h1>
   </header>
   <main>
     {content}
@@ -72,65 +74,107 @@ HTML_TEMPLATE = """<!doctype html>
 """
 
 
-INDEX_TEMPLATE = """<section>
-  <p>
-    This site serves the original Markdown files directly for easy AI access.
-    Use the links below to open each document as <code>.md</code>.
-  </p>
-</section>
-<section class="card-grid">
-  {cards}
-</section>
+def redirect_page(target: str, title: str = "Redirecting") -> str:
+    escaped_target = html.escape(target)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={escaped_target}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{html.escape(title)}</title>
+</head>
+<body>
+  <p>Redirecting to <a href="{escaped_target}">{escaped_target}</a>...</p>
+</body>
+</html>
 """
 
 
-def build_docs() -> list[tuple[str, str]]:
+def build_master_text(entries: list[dict[str, str]]) -> str:
+    lines: list[str] = []
+    lines.append("Naruto Card Clash Docs")
+    lines.append(f"Base URL: {DOCS_BASE_URL}/")
+    lines.append(f"Docs index: {DOCS_BASE_URL}/index.txt")
+    lines.append("")
+    lines.append("Read this first:")
+    lines.append("- This directory contains plain-text versions of the source docs.")
+    lines.append("- Every .md file in Docs/ is published as a matching .txt file.")
+    lines.append("- Links below are absolute, so an AI can open them directly.")
+    lines.append("")
+    lines.append(f"Total docs: {len(entries)}")
+    lines.append("")
+    lines.append("Documents:")
+
+    for index, entry in enumerate(entries, start=1):
+        lines.append(f"{index}. {entry['title']}")
+        lines.append(f"   File: {entry['relative_path']}")
+        lines.append(f"   URL: {DOCS_BASE_URL}/{entry['relative_path']}")
+        lines.append(f"   Source: Docs/{entry['source_path']}")
+        lines.append("")
+
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def build_docs() -> list[dict[str, str]]:
     docs_output = SITE_DIR / "docs"
     docs_output.mkdir(parents=True, exist_ok=True)
 
-    generated: list[tuple[str, str]] = []
-    for md_file in sorted(DOCS_DIR.glob("*.md")):
-        title = extract_title(read_text(md_file), md_file.stem)
-        destination = docs_output / md_file.name
+    entries: list[dict[str, str]] = []
+    for md_file in sorted(DOCS_DIR.rglob("*.md")):
+        relative_md = md_file.relative_to(DOCS_DIR)
+        relative_txt = relative_md.with_suffix(".txt")
+        title = extract_title(read_text(md_file), relative_md.stem)
+
+        destination = docs_output / relative_txt
+        destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(md_file, destination)
-        generated.append((title, md_file.name))
 
-    cards = "\n  ".join(
-        f'<div class="card"><h2><a href="docs/{html.escape(file_name)}">{html.escape(title)}</a></h2>'
-        f'<p class="muted">Open the original Markdown file.</p></div>'
-        for title, file_name in generated
-    )
-    index_html = HTML_TEMPLATE.format(
-        title="Naruto Card Clash Docs",
-        content=INDEX_TEMPLATE.format(cards=cards),
-    )
-    write_text(SITE_DIR / "index.html", index_html)
+        entries.append(
+            {
+                "title": title,
+                "relative_path": relative_txt.as_posix(),
+                "source_path": relative_md.as_posix(),
+            }
+        )
 
-    docs_index = HTML_TEMPLATE.format(
-        title="Documentation Index",
-        content="""
-        <p class="muted">Pick a document below.</p>
-        <ul>
-          {items}
-        </ul>
-        """.format(
-            items="\n          ".join(
-                f'<li><a href="{html.escape(file_name)}">{html.escape(title)}</a></li>'
-                for title, file_name in generated
-            )
-        ),
+    master_text = build_master_text(entries)
+    write_text(docs_output / "index.txt", master_text)
+    write_text(
+        docs_output / "index.html", redirect_page("index.txt", "Documentation index")
     )
-    write_text(docs_output / "index.html", docs_index)
 
-    return generated
+    return entries
+
+
+def build_root_index(doc_count: int, app_copied: bool) -> None:
+    docs_link = f"{DOCS_BASE_URL}/index.txt"
+    app_state = (
+        "The Angular app build has been copied into the Pages root."
+        if app_copied
+        else "The Angular app is not deployed yet, so this Pages site is docs-first for now."
+    )
+    content = f"""
+    <p>{html.escape(app_state)}</p>
+    <p>
+      Open the master docs file here:
+      <a href="docs/index.txt">docs/index.txt</a>
+    </p>
+    <p class="small muted">
+      Total docs published: {doc_count}. The master file contains absolute links for AI tools.
+    </p>
+    <p class="small muted">
+      Direct URL: <code>{html.escape(docs_link)}</code>
+    </p>
+    """
+    write_text(SITE_DIR / "index.html", html_page("Naruto Card Clash", content))
 
 
 def find_app_build_root() -> Path | None:
     if not APP_DIST_DIR.exists():
         return None
 
-    flat_index = APP_DIST_DIR / "index.html"
-    if flat_index.exists():
+    if (APP_DIST_DIR / "index.html").exists():
         return APP_DIST_DIR
 
     index_files = sorted(APP_DIST_DIR.rglob("index.html"))
@@ -158,25 +202,23 @@ def copy_app_build_if_present() -> bool:
 
 def main() -> None:
     clean_site_dir()
-    generated_docs = build_docs()
+    docs_entries = build_docs()
     app_copied = copy_app_build_if_present()
+    build_root_index(len(docs_entries), app_copied)
 
     if not app_copied:
-        # Keep a simple landing page when Angular has not been built yet.
         write_text(
             SITE_DIR / "app-placeholder.html",
-            HTML_TEMPLATE.format(
-                title="Angular app not deployed yet",
-                content=(
-                    "<p>The Angular build is not present yet. When it is added, "
-                    "its files can be copied into the Pages root and this page "
-                    "can be replaced by the app.</p>"
-                    '<p>Meanwhile, use the docs index: <a href="docs/index.html">docs/index.html</a>.</p>'
-                ),
+            html_page(
+                "Angular app not deployed yet",
+                """
+                <p>The Angular build is not present yet. When it is added, its files can be copied into the Pages root.</p>
+                <p>For docs, use <a href="docs/index.txt">docs/index.txt</a>.</p>
+                """,
             ),
         )
 
-    print(f"Copied {len(generated_docs)} markdown docs into {SITE_DIR / 'docs'}")
+    print(f"Copied {len(docs_entries)} markdown docs into plain-text Pages files")
     if app_copied:
         print("Copied Angular build output into site root")
     else:
