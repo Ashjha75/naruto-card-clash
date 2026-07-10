@@ -1,0 +1,97 @@
+{
+	"profile": "personal",
+	"version": "2026-07-10T12:00:00Z",
+	"documents": [
+		{
+			"id": "project-overview",
+			"path": "1.PROJECT-OVERVIEW.txt",
+			"title": "Naruto Card Clash - Project Overview",
+			"type": "project",
+			"tags": ["naruto", "overview", "tech-stack", "frontend", "backend"],
+			"keywords": [
+				"game",
+				"card-battle",
+				"websocket",
+				"stomp",
+				"angular",
+				"spring-boot"
+			],
+			"related": ["backend-setup", "backend-architecture"],
+			"summary": "High-level overview of the Naruto Card Clash 1v1 real-time card-battle game project, including game rules, tech stack, and user flow.",
+			"priority": 1,
+			"updated_at": "2026-07-10"
+		},
+		{
+			"id": "backend-setup",
+			"path": "2.BACKEND-SETUP.txt",
+			"title": "Naruto Card Clash - Backend Setup & Build Phases",
+			"type": "setup",
+			"tags": ["naruto", "backend", "setup", "spring-boot", "postgres"],
+			"keywords": [
+				"gradle",
+				"flyway",
+				"liquibase",
+				"docker",
+				"migration",
+				"configuration"
+			],
+			"related": ["project-overview", "backend-architecture"],
+			"summary": "Detailed runbook for setting up the Spring Boot backend, configuring Docker, PostgreSQL, migrations with Flyway, and the step-by-step build phases.",
+			"priority": 1,
+			"updated_at": "2026-07-10"
+		},
+		{
+			"id": "backend-architecture",
+			"path": "3.Architecture.txt",
+			"title": "Naruto Card Clash - Backend Architecture",
+			"type": "architecture",
+			"tags": [
+				"naruto",
+				"backend",
+				"architecture",
+				"websocket",
+				"state-machine"
+			],
+			"keywords": [
+				"stomp",
+				"lobby",
+				"matchmaking",
+				"gameplay",
+				"realtime",
+				"event-driven"
+			],
+			"related": ["project-overview", "backend-setup"],
+			"summary": "Detailed architecture guide of the game state machine, lobby matchmaking, WebSocket communication, STOMP event flows, and database schema.",
+			"priority": 1,
+			"updated_at": "2026-07-10"
+		},
+		{
+			"id": "learning-topics",
+			"path": "Learning-Topics.txt",
+			"title": "Naruto Card Clash - Topics You'll Actually Use",
+			"type": "learning",
+			"tags": [
+				"naruto",
+				"learning",
+				"websocket",
+				"security",
+				"spring-boot"
+			],
+			"keywords": [
+				"spring-security",
+				"jwt",
+				"stomp-security",
+				"transactions",
+				"multithreading"
+			],
+			"related": [
+				"project-overview",
+				"backend-setup",
+				"backend-architecture"
+			],
+			"summary": "Core topics and concepts required to build this project, including JWT stateless authentication, Spring Security, transaction management, and concurrency.",
+			"priority": 1,
+			"updated_at": "2026-07-10"
+		}
+	]
+}
