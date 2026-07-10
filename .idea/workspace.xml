@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="Update application configuration and Docker setup">
-      <change afterPath="$PROJECT_DIR$/Docs/Learning-Topics.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/BACKEND-SETUP.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/2.BACKEND-SETUP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/PROJECT-OVERVIEW.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/1.PROJECT-OVERVIEW.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/naruto-card-clash-server/src/main/resources/application.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="0fb9ebfc-8e05-41b5-a6b1-2e924e0bbdb1" name="Changes" comment="Update application configuration and Docker setup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,7 +219,7 @@
       <updated>1783503782015</updated>
       <workItem from="1783503783266" duration="604000" />
       <workItem from="1783504447432" duration="1026000" />
-      <workItem from="1783577191965" duration="3886000" />
+      <workItem from="1783577191965" duration="3957000" />
     </task>
     <task id="LOCAL-00001" summary="Update application configuration and Docker setup">
       <option name="closed" value="true" />
@@ -251,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783578858943</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update application configuration and Docker setup">
+      <option name="closed" value="true" />
+      <created>1783586050826</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783586050826</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
