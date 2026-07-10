@@ -1,18 +1,9 @@
 from __future__ import annotations
 
 import html
-import os
 import re
 import shutil
 from pathlib import Path
-
-try:
-    from markdown import markdown
-except ImportError as exc:  # pragma: no cover - install happens in CI
-    raise SystemExit(
-        "Missing dependency: markdown. Install it with `python -m pip install markdown`."
-    ) from exc
-
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = REPO_ROOT / "Docs"
@@ -43,15 +34,6 @@ def extract_title(markdown_text: str, fallback: str) -> str:
     return fallback
 
 
-def rewrite_internal_links(rendered_html: str) -> str:
-    def replace_href(match: re.Match[str]) -> str:
-        url = match.group(1)
-        suffix = match.group(2) or ""
-        return f'href="{url}.html{suffix}"'
-
-    return re.sub(r'href="([^"]+?)\.md(#[^"]*)?"', replace_href, rendered_html)
-
-
 HTML_TEMPLATE = """<!doctype html>
 <html lang="en">
 <head>
@@ -70,16 +52,11 @@ HTML_TEMPLATE = """<!doctype html>
     header, main {{ max-width: 960px; margin: 0 auto; padding: 24px; }}
     header {{ border-bottom: 1px solid rgba(148, 163, 184, 0.25); }}
     a {{ color: #7dd3fc; }}
-    code, pre {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-    pre {{ overflow: auto; padding: 16px; background: rgba(15, 23, 42, 0.8); border-radius: 12px; }}
-    table {{ border-collapse: collapse; width: 100%; overflow: auto; display: block; }}
-    th, td {{ border: 1px solid rgba(148, 163, 184, 0.2); padding: 8px 12px; vertical-align: top; }}
-    blockquote {{ margin: 16px 0; padding: 4px 16px; border-left: 4px solid #38bdf8; background: rgba(56, 189, 248, 0.08); }}
-    img {{ max-width: 100%; }}
-    hr {{ border: 0; border-top: 1px solid rgba(148, 163, 184, 0.2); margin: 24px 0; }}
+    .muted {{ color: #94a3b8; }}
     .card-grid {{ display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }}
     .card {{ padding: 16px; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 12px; background: rgba(15, 23, 42, 0.55); }}
-    .muted {{ color: #94a3b8; }}
+    code {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
+    pre {{ overflow: auto; padding: 16px; background: rgba(15, 23, 42, 0.8); border-radius: 12px; }}
   </style>
 </head>
 <body>
@@ -97,9 +74,8 @@ HTML_TEMPLATE = """<!doctype html>
 
 INDEX_TEMPLATE = """<section>
   <p>
-    Browser-friendly documentation generated from the <code>Docs/</code> folder.
-    If the Angular app is built later, it can live at the site root while these
-    docs stay under <code>/docs/</code>.
+    This site serves the original Markdown files directly for easy AI access.
+    Use the links below to open each document as <code>.md</code>.
   </p>
 </section>
 <section class="card-grid">
@@ -108,30 +84,20 @@ INDEX_TEMPLATE = """<section>
 """
 
 
-def convert_markdown_file(md_path: Path, output_path: Path) -> tuple[str, str]:
-    raw = read_text(md_path)
-    title = extract_title(raw, md_path.stem)
-    rendered = markdown(raw, extensions=["fenced_code", "tables", "toc"])
-    rendered = rewrite_internal_links(rendered)
-    write_text(
-        output_path, HTML_TEMPLATE.format(title=html.escape(title), content=rendered)
-    )
-    return title, output_path.name
-
-
 def build_docs() -> list[tuple[str, str]]:
     docs_output = SITE_DIR / "docs"
     docs_output.mkdir(parents=True, exist_ok=True)
 
     generated: list[tuple[str, str]] = []
     for md_file in sorted(DOCS_DIR.glob("*.md")):
-        html_name = f"{md_file.stem}.html"
-        title, file_name = convert_markdown_file(md_file, docs_output / html_name)
-        generated.append((title, file_name))
+        title = extract_title(read_text(md_file), md_file.stem)
+        destination = docs_output / md_file.name
+        shutil.copy2(md_file, destination)
+        generated.append((title, md_file.name))
 
     cards = "\n  ".join(
         f'<div class="card"><h2><a href="docs/{html.escape(file_name)}">{html.escape(title)}</a></h2>'
-        f'<p class="muted">Open the rendered version of <code>{html.escape(file_name.replace(".html", ".md"))}</code>.</p></div>'
+        f'<p class="muted">Open the original Markdown file.</p></div>'
         for title, file_name in generated
     )
     index_html = HTML_TEMPLATE.format(
@@ -210,7 +176,7 @@ def main() -> None:
             ),
         )
 
-    print(f"Generated {len(generated_docs)} docs pages in {SITE_DIR / 'docs'}")
+    print(f"Copied {len(generated_docs)} markdown docs into {SITE_DIR / 'docs'}")
     if app_copied:
         print("Copied Angular build output into site root")
     else:

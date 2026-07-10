@@ -27,9 +27,6 @@ jobs:
               with:
                   python-version: "3.12"
 
-            - name: Install markdown renderer
-              run: python -m pip install --upgrade pip markdown
-
             - name: Build site
               run: python scripts/build_pages.py
 
