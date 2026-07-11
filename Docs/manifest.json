@@ -1,97 +1,138 @@
 {
-	"profile": "personal",
-	"version": "2026-07-10T12:00:00Z",
-	"documents": [
-		{
-			"id": "project-overview",
-			"path": "1.PROJECT-OVERVIEW.txt",
-			"title": "Naruto Card Clash - Project Overview",
-			"type": "project",
-			"tags": ["naruto", "overview", "tech-stack", "frontend", "backend"],
-			"keywords": [
-				"game",
-				"card-battle",
-				"websocket",
-				"stomp",
-				"angular",
-				"spring-boot"
-			],
-			"related": ["backend-setup", "backend-architecture"],
-			"summary": "High-level overview of the Naruto Card Clash 1v1 real-time card-battle game project, including game rules, tech stack, and user flow.",
-			"priority": 1,
-			"updated_at": "2026-07-10"
-		},
-		{
-			"id": "backend-setup",
-			"path": "2.BACKEND-SETUP.txt",
-			"title": "Naruto Card Clash - Backend Setup & Build Phases",
-			"type": "setup",
-			"tags": ["naruto", "backend", "setup", "spring-boot", "postgres"],
-			"keywords": [
-				"gradle",
-				"flyway",
-				"liquibase",
-				"docker",
-				"migration",
-				"configuration"
-			],
-			"related": ["project-overview", "backend-architecture"],
-			"summary": "Detailed runbook for setting up the Spring Boot backend, configuring Docker, PostgreSQL, migrations with Flyway, and the step-by-step build phases.",
-			"priority": 1,
-			"updated_at": "2026-07-10"
-		},
-		{
-			"id": "backend-architecture",
-			"path": "3.Architecture.txt",
-			"title": "Naruto Card Clash - Backend Architecture",
-			"type": "architecture",
-			"tags": [
-				"naruto",
-				"backend",
-				"architecture",
-				"websocket",
-				"state-machine"
-			],
-			"keywords": [
-				"stomp",
-				"lobby",
-				"matchmaking",
-				"gameplay",
-				"realtime",
-				"event-driven"
-			],
-			"related": ["project-overview", "backend-setup"],
-			"summary": "Detailed architecture guide of the game state machine, lobby matchmaking, WebSocket communication, STOMP event flows, and database schema.",
-			"priority": 1,
-			"updated_at": "2026-07-10"
-		},
-		{
-			"id": "learning-topics",
-			"path": "Learning-Topics.txt",
-			"title": "Naruto Card Clash - Topics You'll Actually Use",
-			"type": "learning",
-			"tags": [
-				"naruto",
-				"learning",
-				"websocket",
-				"security",
-				"spring-boot"
-			],
-			"keywords": [
-				"spring-security",
-				"jwt",
-				"stomp-security",
-				"transactions",
-				"multithreading"
-			],
-			"related": [
-				"project-overview",
-				"backend-setup",
-				"backend-architecture"
-			],
-			"summary": "Core topics and concepts required to build this project, including JWT stateless authentication, Spring Security, transaction management, and concurrency.",
-			"priority": 1,
-			"updated_at": "2026-07-10"
-		}
-	]
+  "profile": "personal",
+  "version": "2026-07-11T09:58:13.582Z",
+  "documents": [
+    {
+      "id": "project-overview",
+      "title": "Naruto Card Clash — Project Overview",
+      "type": "project",
+      "summary": "High-level overview of the Naruto Card Clash 1v1 real-time card-battle game project, including game rules, tech stack, and user flow.",
+      "tags": [
+        "naruto",
+        "overview",
+        "tech-stack",
+        "frontend",
+        "backend"
+      ],
+      "keywords": [
+        "game",
+        "card-battle",
+        "websocket",
+        "stomp",
+        "angular",
+        "spring-boot"
+      ],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "1.PROJECT-OVERVIEW.md"
+    },
+    {
+      "id": "backend-setup",
+      "title": "Naruto Card Clash — Backend Setup & Build Phases",
+      "type": "setup",
+      "summary": "Detailed backend implementation plan for the Naruto Card Clash Spring Boot project, covering dependencies, Docker setup, application config, and build phases.",
+      "tags": [
+        "backend",
+        "spring-boot",
+        "setup",
+        "phases",
+        "docker",
+        "redis",
+        "jwt"
+      ],
+      "keywords": [],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "2.BACKEND-SETUP.md"
+    },
+    {
+      "id": "architecture",
+      "title": "Naruto Card Clash — Backend Architecture",
+      "type": "architecture",
+      "summary": "Architecture reference for the Naruto Card Clash backend, including module boundaries, communication style, persistence choices, concurrency strategy, and scaling trade-offs.",
+      "tags": [
+        "architecture",
+        "modular-monolith",
+        "concurrency",
+        "redis",
+        "websocket"
+      ],
+      "keywords": [],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "3.Architecture.md"
+    },
+    {
+      "id": "4.strcture",
+      "title": "4.Strcture.md",
+      "type": "document",
+      "summary": "Auto-generated document without frontmatter.",
+      "tags": [],
+      "keywords": [],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "4.Strcture.md"
+    },
+    {
+      "id": "5.databse",
+      "title": "5.Databse.md",
+      "type": "document",
+      "summary": "Auto-generated document without frontmatter.",
+      "tags": [],
+      "keywords": [],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "5.Databse.md"
+    },
+    {
+      "id": "learning-topics",
+      "title": "Naruto Card Clash — Topics You'll Actually Use",
+      "type": "reference",
+      "summary": "Study guide mapping Java, Spring, database, Redis, concurrency, and testing topics to real parts of the Naruto Card Clash codebase.",
+      "tags": [
+        "learning",
+        "java",
+        "spring",
+        "concurrency",
+        "testing",
+        "redis"
+      ],
+      "keywords": [],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "Learning-Topics.md"
+    },
+    {
+      "id": "doc-metadata-template",
+      "title": "Documentation Metadata Template",
+      "type": "template",
+      "summary": "Reusable frontmatter template for any documentation file in this repository so AI tools can read consistent metadata before the content.",
+      "tags": [
+        "template",
+        "metadata",
+        "docs",
+        "ai"
+      ],
+      "keywords": [
+        "frontmatter",
+        "yaml",
+        "title",
+        "id",
+        "tags",
+        "keywords",
+        "summary",
+        "ai-readable"
+      ],
+      "related": [],
+      "priority": 5,
+      "updated_at": "2026-07-11",
+      "path": "META-TEMPLATE.md"
+    }
+  ]
 }
