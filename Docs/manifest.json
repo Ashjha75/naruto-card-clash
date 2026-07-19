@@ -1,6 +1,6 @@
 {
   "profile": "personal",
-  "version": "2026-07-18T17:10:52.559Z",
+  "version": "2026-07-19T09:04:47.697Z",
   "documents": [
     {
       "id": "project-overview",
@@ -24,7 +24,7 @@
       ],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "1.PROJECT-OVERVIEW.md"
     },
     {
@@ -44,7 +44,7 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "2.BACKEND-SETUP.md"
     },
     {
@@ -62,20 +62,20 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "3.Architecture.md"
     },
     {
-      "id": "4.strcture",
-      "title": "4.Strcture.md",
+      "id": "4.folder-structure",
+      "title": "4.Folder-structure.md",
       "type": "document",
       "summary": "Auto-generated document without frontmatter.",
       "tags": [],
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
-      "path": "4.Strcture.md"
+      "updated_at": "2026-07-19",
+      "path": "4.Folder-structure.md"
     },
     {
       "id": "5.databse",
@@ -86,7 +86,7 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "5.Databse.md"
     },
     {
@@ -98,20 +98,8 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "6.Api-contract.md"
-    },
-    {
-      "id": "8.folder-structure",
-      "title": "8.Folder-structure.md",
-      "type": "document",
-      "summary": "Auto-generated document without frontmatter.",
-      "tags": [],
-      "keywords": [],
-      "related": [],
-      "priority": 5,
-      "updated_at": "2026-07-18",
-      "path": "8.Folder-structure.md"
     },
     {
       "id": "learning-topics",
@@ -129,7 +117,7 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "Learning-Topics.md"
     },
     {
@@ -155,7 +143,7 @@
       ],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "META-TEMPLATE.md"
     },
     {
@@ -167,7 +155,7 @@
       "keywords": [],
       "related": [],
       "priority": 5,
-      "updated_at": "2026-07-18",
+      "updated_at": "2026-07-19",
       "path": "overall-backend-topics.md"
     }
   ]
